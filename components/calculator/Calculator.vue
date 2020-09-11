@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="block text-2xl">Calculator {{ name }}</h1>
-    <div class="calculator bg-white p-8 mt-2">
+    <div class="calculator bg-white p-10 mt-2">
       <monitor :expr="expr" :result="result" />
       <div class="grid grid-rows-2 grid-cols-4 gap-2 mt-2 text-3xl">
         <!-- row 1 -->
