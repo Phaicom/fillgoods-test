@@ -35,7 +35,7 @@ $ yarn storybook
 ```
 
 ## Demo
-https://objective-boyd-73dc75.netlify.app/
+https://phaicom.github.io/fillgoods-test/
 
 ## Author
 
