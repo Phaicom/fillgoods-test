@@ -1,7 +1,6 @@
 import moment from 'moment'
 
 export const state = () => ({
-  list: [],
   results: [],
   search: {
     text: '',
@@ -40,13 +39,3 @@ export const getters = {
       .reverse()
   },
 }
-
-// export const actions = {
-//   async getRandomTodo({ commit }) {
-//     const randomNumberUnderTwoHundred = Math.floor(Math.random() * 200)
-//     const { data } = await this.$axios.get(
-//       `https://jsonplaceholder.typicode.com/todos/${randomNumberUnderTwoHundred}`
-//     )
-//     commit('add', data.title)
-//   },
-// }

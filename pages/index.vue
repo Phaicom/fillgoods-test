@@ -5,7 +5,7 @@
     >
       <calculator class="xl:col-span-2 pt-4 md:pt-0" :name="'A'"></calculator>
       <calculator class="xl:col-span-2 pt-4 md:pt-0" :name="'B'"></calculator>
-      <result class="xl:col-span-3 pt-4 md:pt-0">c</result>
+      <result class="xl:col-span-3 pt-4 md:pt-0"></result>
     </div>
   </div>
 </template>

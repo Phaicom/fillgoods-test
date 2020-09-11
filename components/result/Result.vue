@@ -10,7 +10,7 @@
         >
           <div class="grid grid-rows-1 xl:grid-cols-2 gap-2 text-xl">
             <p>Calculator {{ result.name }}</p>
-            <p style="color: #9bc2e3">{{ formatDate(result.date) }}</p>
+            <p class="date">{{ formatDate(result.date) }}</p>
           </div>
           <monitor :expr="result.expr" :result="result.result" />
         </div>
@@ -44,9 +44,6 @@ export default {
     formatDate(date) {
       return moment(date).format('DD/MM/YYYY - h:mm:ss')
     },
-    // clear() {
-    //   this.$store.commit('clear')
-    // }
   }
 }
 </script>
@@ -62,6 +59,10 @@ export default {
   .wrapper {
     overflow-y: scroll;
     height: 100%;
+
+    .date {
+      color: #9bc2e3;
+    }
   }
 
   .button {
