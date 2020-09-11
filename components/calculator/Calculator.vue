@@ -1,12 +1,8 @@
 <template>
   <div>
-    <h1 class="block text-2xl">Calculator A</h1>
+    <h1 class="block text-2xl">Calculator {{ name }}</h1>
     <div class="calculator bg-white p-8 mt-2">
-      <div>
-        <p class="text-4xl">{{ result || 0 }}</p>
-        <hr style="border-color: #cdcdcd" />
-        <p class="text-2xl">{{ expr || 0 }}</p>
-      </div>
+      <monitor :expr="expr" :result="result" />
       <div class="grid grid-rows-2 grid-cols-4 gap-4 mt-2 text-3xl">
         <!-- row 1 -->
         <button class="button square row-span-1" @click="clear()">
@@ -68,7 +64,15 @@
 
 <script>
 import axios from "axios";
+import Monitor from '@/components/calculator/Monitor'
+
 export default {
+  props: {
+    name: String,
+  },
+  components: {
+    Monitor
+  },
   data() {
     return {
       expr: '',
