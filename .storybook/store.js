@@ -1,12 +1,13 @@
-  
 import Vuex from 'vuex'
 
 import axios from 'axios'
 
-// import actions from '@/store/actions'
+import { getters, mutations, state } from '@/store'
 
 let store = new Vuex.Store({
-  // actions: actions,
+  getters,
+  mutations,
+  state,
 })
 
 store.$axios = axios
