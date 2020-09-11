@@ -83,7 +83,7 @@ export default {
       let previous = this.expr.split('')[this.expr.length - 1];
       if (this.isOperator(previous) || this.expr === '')
         return;
-      let res = await axios.post(`http://api.mathjs.org/v4/`, { expr: this.expr, precision: 10 })
+      let res = await axios.post(`https://api.mathjs.org/v4/`, { expr: this.expr, precision: 10 })
       this.result = res.data.result
       this.$store.commit('add', {
         expr: this.expr,
