@@ -3,6 +3,7 @@ import { action } from '@storybook/addon-actions'
 import Vue from 'vue'
 import Vuex from 'vuex'
 import '@/assets/css/tailwind.css'
+import '@/assets/css/style.base.css'
 
 Vue.use(Vuex)
 

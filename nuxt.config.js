@@ -72,6 +72,7 @@ export default {
       plugins: {
         // Disable a plugin by passing false as value
         'postcss-nested': {},
+        'postcss-import': {},
       },
       preset: {
         // Change the postcss-preset-env settings
