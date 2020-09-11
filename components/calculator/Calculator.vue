@@ -84,9 +84,6 @@ export default {
       if (this.isOperator(previous))
         return;
       let res = await axios.post(`http://api.mathjs.org/v4/`, { expr: this.expr })
-      // 
-      console.log('response', res)
-      // 
       this.result = res.data.result;
     },
     add(opr) {

@@ -1,8 +1,8 @@
 <template>
   <div>
-    <p class="text-4xl">{{ result || 0 }}</p>
+    <p class="result text-4xl">{{ result || 0 }}</p>
     <hr style="border-color: #cdcdcd" />
-    <p class="text-2xl" v-html="exprFormat || 0"></p>
+    <p class="expr text-2xl" v-html="exprFormat || 0"></p>
   </div>
 </template>
 
