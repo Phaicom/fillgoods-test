@@ -94,7 +94,7 @@ export default {
     },
     add(opr) {
       let previous = this.expr.split('')[this.expr.length - 1];
-      if (this.isOperator(opr) && this.isOperator(previous))
+      if (this.isOperator(opr) && this.isOperator(previous) || opr === '*' && typeof (previous) === 'undefined')
         return;
       this.expr += opr
     },

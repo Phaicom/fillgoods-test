@@ -24,6 +24,7 @@ describe('Calculator', () => {
 
   test('it should call add', () => {
     const wrapper = mount(Calculator, {})
+    wrapper.vm.add('*')
     wrapper.vm.add('1')
     wrapper.vm.add('+')
     wrapper.vm.add('-')
