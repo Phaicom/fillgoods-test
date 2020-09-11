@@ -1,20 +1,44 @@
 # fillgoods-test
 
-## Build Setup
+  <a href="#badge">
+    <img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square"></a>
 
-```bash
-# install dependencies
-$ yarn install
+## Prerequisites
 
-# serve with hot reload at localhost:3000
+- [Nodejs](https://nodejs.org/en/)
+- [Yarn](https://yarnpkg.com/)
+
+## Built with
+
+- [Nuxtjs](https://nuxtjs.org/guide/)
+- [Storybook](https://storybook.js.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+
+## Installing
+
+1. Nuxtjs
+- install dependencies
+```
+$ yarn
+```
+- start development
+```
 $ yarn dev
-
-# build for production and launch server
-$ yarn build
-$ yarn start
-
-# generate static project
-$ yarn generate
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+2. storybook
+- start storybook
+```
+$ yarn storybook
+```
+
+## Demo
+https://objective-boyd-73dc75.netlify.app/
+
+## Author
+
+By [Reawpai Chunsoi](https://github.com/phaicom/)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
