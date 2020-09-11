@@ -3,7 +3,7 @@
     <h1 class="block text-2xl">Calculator {{ name }}</h1>
     <div class="calculator bg-white p-8 mt-2">
       <monitor :expr="expr" :result="result" />
-      <div class="grid grid-rows-2 grid-cols-4 gap-4 mt-2 text-3xl">
+      <div class="grid grid-rows-2 grid-cols-4 gap-2 mt-2 text-3xl">
         <!-- row 1 -->
         <button class="button square row-span-1" @click="clear()">
           <p>C</p>
@@ -67,11 +67,11 @@ import axios from "axios";
 import Monitor from '@/components/calculator/Monitor'
 
 export default {
-  props: {
-    name: String,
-  },
   components: {
     Monitor
+  },
+  props: {
+    name: { type: String, default: '' },
   },
   data() {
     return {

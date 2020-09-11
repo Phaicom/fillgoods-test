@@ -1,9 +1,11 @@
 <template>
-  <div class="container">
-    <div class="grid grid-rows-flow grid-cols-3 gap-4">
-      <calculator class="row-span-1"></calculator>
-      <div class="bg-red-200 row-span-1">c</div>
-      <div class="bg-red-200 row-span-1">d</div>
+  <div class="px-2 md:px-10 pt-12 pb-4">
+    <div
+      class="grid grid-rows-flow grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-4 lg:gap-8"
+    >
+      <calculator class="row-span-1 pt-4 md:pt-0" :name="'A'"></calculator>
+      <calculator class="row-span-1 pt-4 md:pt-0" :name="'B'"></calculator>
+      <div class="bg-red-200 row-span-1 pt-4 md:pt-0">c</div>
     </div>
   </div>
 </template>
@@ -18,11 +20,4 @@ export default {
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  /* justify-content: center;
-  align-items: center;
-  text-align: center; */
-}
 </style>
