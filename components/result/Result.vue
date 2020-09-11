@@ -1,65 +1,86 @@
 <template>
   <div>
-    <div class="md:flex md:items-center mb-6 text-2xl">
-      <div class="md:w-2/12">
-        <label class="block md:text-right mb-1 md:mb-0 pr-4"> Results </label>
-      </div>
-      <div class="md:w-9/12">
-        <div class="md:pr-4 pt-2 md:pt-0">
-          <input
-            class="input appearance-none w-full py-2 px-4 text-gray-500 leading-tight"
-            type="text"
-            placeholder="Search by result, date"
-            v-model="search"
-          />
-        </div>
-      </div>
-      <div class="md:w-3/12 md:inline-block relative pt-2 md:pt-0">
-        <select
-          class="input appearance-none w-full py-2 px-4 text-gray-500 leading-tight"
-          style="text-align-last: center"
-          type="text"
-          v-model="filter"
-        >
-          <option>All</option>
-          <option>A</option>
-          <option>B</option>
-        </select>
+    <search />
+    <div class="result bg-white p-10 mt-2">
+      <div class="wrapper">
         <div
-          class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
+          class="mb-2"
+          v-for="(result, i) in getSearchResults()"
+          :key="i + 1"
         >
-          <svg
-            class="fill-current h-4 w-4"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-          >
-            <path
-              d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-            />
-          </svg>
+          <div class="grid grid-rows-1 xl:grid-cols-2 gap-2 text-xl">
+            <p>Calculator {{ result.name }}</p>
+            <p class="date">{{ formatDate(result.date) }}</p>
+          </div>
+          <monitor :expr="result.expr" :result="result.result" />
         </div>
       </div>
+
+      <button class="button text-3xl px-3" @click="clear()">Clear</button>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex'
+import moment from 'moment'
 import axios from "axios";
+import Search from '@/components/result/Search'
+import Monitor from '@/components/calculator/Monitor'
 
 export default {
+  components: {
+    Search, Monitor
+  },
   data() {
     return {
-      search: '',
-      filter: 'All'
+      results: [],
     }
   }, methods: {
+    ...mapGetters([
+      'getSearchResults'
+    ]),
+    ...mapMutations({ clear: 'clear' }),
+    formatDate(date) {
+      return moment(date).format('DD/MM/YYYY - h:mm:ss')
+    },
   }
 }
 </script>
 
 <style scoped>
-.input {
+.result {
+  position: relative;
   border-radius: 2rem;
   box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.25);
+  height: 600px;
+  overflow: hidden;
+
+  .wrapper {
+    overflow-y: scroll;
+    height: 100%;
+
+    .date {
+      color: #9bc2e3;
+    }
+  }
+
+  .button {
+    background-color: #faa7a7;
+    color: white;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 1rem;
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.25);
+
+    &:focus {
+      outline: none;
+    }
+
+    &:active {
+      box-shadow: none;
+    }
+  }
 }
 </style>

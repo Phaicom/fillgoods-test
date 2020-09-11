@@ -5,16 +5,17 @@
     >
       <calculator class="xl:col-span-2 pt-4 md:pt-0" :name="'A'"></calculator>
       <calculator class="xl:col-span-2 pt-4 md:pt-0" :name="'B'"></calculator>
-      <div class="bg-red-200 xl:col-span-3 pt-4 md:pt-0">c</div>
+      <result class="xl:col-span-3 pt-4 md:pt-0"></result>
     </div>
   </div>
 </template>
 
 <script>
 import Calculator from '@/components/calculator/Calculator'
+import Result from '@/components/result/Result'
 export default {
   components: {
-    Calculator
+    Calculator, Result
   }
 }
 </script>

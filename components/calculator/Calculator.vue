@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="lg:mt-4">
     <h1 class="block text-2xl">Calculator {{ name }}</h1>
     <div class="calculator bg-white p-10 mt-2">
       <monitor :expr="expr" :result="result" />
@@ -81,14 +81,20 @@ export default {
   }, methods: {
     async calculate() {
       let previous = this.expr.split('')[this.expr.length - 1];
-      if (this.isOperator(previous))
+      if (this.isOperator(previous) || this.expr === '')
         return;
-      let res = await axios.post(`http://api.mathjs.org/v4/`, { expr: this.expr })
-      this.result = res.data.result;
+      let res = await axios.post(`http://api.mathjs.org/v4/`, { expr: this.expr, precision: 10 })
+      this.result = res.data.result
+      this.$store.commit('add', {
+        expr: this.expr,
+        result: this.result,
+        name: this.name,
+        date: Date.now()
+      });
     },
     add(opr) {
       let previous = this.expr.split('')[this.expr.length - 1];
-      if (this.isOperator(opr) && this.isOperator(previous))
+      if (this.isOperator(opr) && this.isOperator(previous) || opr === '*' && typeof (previous) === 'undefined')
         return;
       this.expr += opr
     },
