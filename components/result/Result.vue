@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex'
+import { mapGetters } from 'vuex'
 import moment from 'moment'
 import axios from "axios";
 import Search from '@/components/result/Search'
@@ -40,10 +40,14 @@ export default {
     ...mapGetters([
       'getSearchResults'
     ]),
-    ...mapMutations({ clear: 'clear' }),
     formatDate(date) {
       return moment(date).format('DD/MM/YYYY - h:mm:ss')
     },
+    clear() {
+      if (confirm('Are you sure you want to clear the result?')) {
+        this.$store.commit('clear');
+      }
+    }
   }
 }
 </script>

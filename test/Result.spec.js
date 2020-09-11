@@ -32,6 +32,21 @@ describe('Result', () => {
     expect(date).toEqual('12/09/2020 - 1:10:44')
   })
 
+  test('it should call clear', () => {
+    const wrapper = shallowMount(Result, {
+      store,
+      localVue,
+    })
+
+    window.confirm = jest.fn().mockImplementation(() => false)
+    wrapper.vm.clear()
+    expect(window.confirm).toHaveBeenCalled()
+
+    window.confirm = jest.fn().mockImplementation(() => true)
+    wrapper.vm.clear()
+    expect(wrapper.vm.getSearchResults.length).toEqual(0)
+  })
+
   test('it should call text', async () => {
     const wrapper = shallowMount(Search, { store, localVue })
     const input = wrapper.find('input')
